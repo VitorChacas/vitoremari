@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Site</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 50px; 
+            background-color: #121212; 
+            color: white;
+            overflow-x: hidden;
+        }
+        h1 { 
+            color: #ff4081; 
+            font-family: 'Dancing Script', cursive; 
+            font-weight: normal; 
+            font-size: 2.5rem; 
+            margin-bottom: 20px;
+        }
+        h2 { 
+            font-size: 1.5rem; 
+            margin-top: 0; 
+        }
+        .container { 
+            position: relative; 
+            width: 100%; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .page { display: none; }
+        .active { display: block; }
+        .nav { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            font-size: 2rem; 
+            cursor: pointer; 
+            z-index: 2;
+        }
+        .left { left: 10px; }
+        .right { right: 10px; }
+        .gallery { 
+            position: relative; 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-top: 20px;
+        }
+        .photo { 
+            padding: 10px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            display: none; 
+            width: 45%; /* Diminuímos o tamanho das fotos */
+            height: 100px; 
+            overflow: hidden; 
+            object-fit: cover;
+        }
+        .photo.active { display: block; }
+        img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 10px; 
+        }
+
+        /* Foto na página do contador quadrada */
+        #contador img { 
+            width: 200px; 
+            height: 200px; /* Diminuímos o tamanho da imagem do contador */
+            object-fit: cover; 
+            border-radius: 10px; 
+            margin-bottom: 20px;
+        }
+
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.2rem; }
+            .container { padding: 20px; }
+            .nav { font-size: 1.5rem; }
+            .photo { 
+                width: 90%; 
+                height: 120px; /* Ajuste para fotos menores */
+            }
+            .gallery { 
+                gap: 10px;
+            }
+            .page { padding: 10px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1rem; }
+            #contador img { width: 150px; height: 150px; }
+            .nav { font-size: 1.2rem; }
+            .photo { 
+                height: 100px; /* Menor ainda em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page active" id="contador">
+            <img src="foto.png" alt="Imagem do casal">
+            <h1>Vitor & Mariana</h1>
+            <h2>Estamos juntos há:</h2>
+            <h2 id="daysCounter"></h2>
+        </div>
+        <div class="page" id="historia">
+            <h1>Nossa História</h1>
+            <p>Vitor e Mariana se conheceram de uma forma não tão convencional, foram encontros por acaso e diversas oportunidades perdidas de se conhecerem,
+            porém, certo dia se encontraram e apenas deixaram o destino seguir seu curso, se encontraram no ônibus (e olha que o Vitor odeia ônibus),
+            conversaram e começou a se desenrolar, certo dia Vitor chamou Mariana para um date (um aniversário kkkk) e saiu o primeiro beijo, desse dia em
+            diante, começaram a se ver quase todos os dias e os dois foram se apaixonando, até que Vitor deixou seu orgulho de lado, tanto quanto Mari
+            deixou seu medo de lado e surgiu um pedido de namoro, enquanto tomavam sorvete de chocomenta dentro do carro, esse pedido foi feito no dia 05 de 
+            Maio de 2022, a vida de ambos nunca mais foi igual, no dia 12 de junho, Vitor deu para a Mariana uma aliança, ela foi a primeira mulher pela qual
+            Vitor teve coragem de realizar tamanho feito. Desde então, os dois estão juntos, nas horas boas e ruins, levando tudo com clareza, transparência,
+            leveza e o mais importante: AMOR.</p>
+        </div>
+        <div class="page" id="galeria">
+            <h1>Galeria de Fotos</h1>
+            <div class="gallery">
+                <div class="photo active" onclick="nextPhoto()"><img src="foto1.jpeg" alt="Foto 1"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto2.jpeg" alt="Foto 2"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto3.jpeg" alt="Foto 3"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto4.jpeg" alt="Foto 4"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto5.jpeg" alt="Foto 5"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto6.jpeg" alt="Foto 6"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto7.jpeg" alt="Foto 7"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto8.jpeg" alt="Foto 8"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto9.jpeg" alt="Foto 9"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto10.jpeg" alt="Foto 10"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto11.jpeg" alt="Foto 11"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto12.jpeg" alt="Foto 12"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto13.jpeg" alt="Foto 13"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto14.jpeg" alt="Foto 14"></div>
+                <div class="photo" onclick="nextPhoto()"><img src="foto15.jpeg" alt="Foto 15"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll(".page");
+
+        function changePage(direction) {
+            pages[currentPage].classList.remove("active");
+            currentPage = (currentPage + direction + pages.length) % pages.length;
+            pages[currentPage].classList.add("active");
+        }
+
+        function calcularTempo() {
+            let inicio = new Date("2024-05-05T00:00:00");
+            let agora = new Date();
+            let diff = agora - inicio;
+
+            let dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("daysCounter").innerText = `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+        }
+        setInterval(calcularTempo, 1000);
+        calcularTempo();
+
+        let currentPhoto = 0;
+        const photos = document.querySelectorAll(".photo");
+
+        function nextPhoto() {
+            photos[currentPhoto].classList.remove("active");
+            currentPhoto = (currentPhoto + 1) % photos.length;
+            photos[currentPhoto].classList.add("active");
+        }
+
+        let startX = 0;
+        document.querySelector(".container").addEventListener("touchstart", (e) => {
+            startX = e.touches[0].pageX;
+        });
+
+        document.querySelector(".container").addEventListener("touchend", (e) => {
+            let endX = e.changedTouches[0].pageX;
+            if (startX - endX > 50) {
+                changePage(1); // swipe left
+            } else if (endX - startX > 50) {
+                changePage(-1); // swipe right
+            }
+        });
+    </script>
+</body>
+</html>
